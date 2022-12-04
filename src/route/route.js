@@ -23,13 +23,6 @@ router.get("/bookTickets", ticketController.bookTicket) // Book Ticket
 
 router.post("/orderTicket", orderController.orderTicket) //order Ticket
 
-// router.post("/user/:userId/profile", mid,ticketController.configureEvent) //configure avaliable tickets
-
-// router.put("/user/:userId/profile", mid,eventController.publishEvent) // publish/unpublish events
-
-// router.get("/user/:userId/profile", mid,ticketController.reservationList) // see the list of reservation for an event
-
-// router.post("/user/:userId/profile", mid,orderController.reserveEvent) //normal user reserve event tickets
 
 
 module.exports = router

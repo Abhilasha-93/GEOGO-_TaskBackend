@@ -20,9 +20,7 @@ exports.adminAuthMiddleware = (request, response, next) => {
 };
 
 const JWT_SECRET = "secret@#";
-// exports.getUserToken = (payload = {}) => {
-//   return jwt.sign(payload, JWT_SECRET);
-// };
+
 
 const validateUserToken = (token = "") => {
   try {
