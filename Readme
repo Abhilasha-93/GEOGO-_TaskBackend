@@ -1,0 +1,63 @@
+Description: Using this system normal users will be able to buy tickets for events. 
+1. You have to create a Node.Js application, using which the admin users will be able to perform following actions (you have to create the following UI here in this app only):
+
+a) Login to admin account
+b) View all events
+c) Create new event
+d) Configure available tickets for an event for given dates.
+e) Publish/unpublish events
+f) See the list of reservations for an event.
+
+2. The Node.Js app also needs to expose multiple API endpoints, using which you will be able to reserve event tickets for normal users.
+
+3. You have to create a React.Js application for normal users, using which they will be able to perform following actions:
+
+a) Create a new account
+b) Login to account
+c) View list of events
+d) Reserve tickets for events
+e) See the list of reserved events with details
+f) Logout from account.
+
+4. Create the following data models in the DB using any ORM you see fitting (don’t use plain SQL queries).
+ 
+User Model: containing the following data types -> _id, mobile number, email, password, full name, role (normal_user, admin_user).
+Seed or auto-generate an admin user with any credentials you want, to manage events.
+ 
+Event Model: containing the following data types -> _id,slug,  name, description, poster, start date, end date, published (only published events within the start_date and end_date range should be visible to normal users).
+ 
+The admin user will be able to create, read, update and delete events.
+ 
+
+(you are free to do improvisations, if required)
+ 
+Ticket: containing the following -> _id, event(foreign key to events table),  name, description, price and quantity.
+ 
+Admin users can create multiple ticket slots for any event.
+ 
+
+(you are free to do improvisations, if required)
+ 
+ 
+Orders: containing the following -> _id, owner (user), event (foreign key to events table), ticket(foreign key to tickets table), purchase_date, total_price, status (confirmed, cancelled).
+ 
+Normal logged-in users (from React.Js app) will be able to reserve tickets for a given event and that information needs to be kept in the orders table.
+
+Fetch Event Route: a route to fetch the event details.
+ 
+Order Route:  the user will use this checkout route to buy a specific quantity of tickets under an event, he/she can buy any amount of tickets as long as it does not exceed the available_quantity, otherwise the API should refuse to continue the order. 
+ 
+The API should decrease the bought amount from the ticket quantity.
+The API should be protected using JWT middleware
+The API should refuse any orders after the event “end_date” 
+Note: You don’t have to integrate with any payment gateway.
+ 
+Using the following is considered a bonus*
+ 
+* You don’t have to finish the bonus tasks but having them will be a huge bonus 
+ 
+- Add cors protection
+- Use typescript
+- Sending email on order completion
+- Event posters (images) uploaded to S3 rather than a local server.
+
